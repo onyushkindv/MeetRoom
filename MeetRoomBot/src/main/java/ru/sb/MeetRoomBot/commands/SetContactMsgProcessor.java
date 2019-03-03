@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import ru.sb.MeetRoomBot.storage.UserStorage;
 
 @Component
@@ -26,7 +28,10 @@ public class SetContactMsgProcessor implements MsgProcessor {
         SendMessage sendMessage = getDef(message);
         sendMessage.setText("Спасибо" + (message.getContact().getFirstName()!=null?(" "+message.getContact().getFirstName()):"")+ ", ваш контакт подтвержден!");
 
-        userStorage.resetStep(message.getChatId());
+        ReplyKeyboardRemove keyboardRemove = new ReplyKeyboardRemove();
+        sendMessage.setReplyMarkup(keyboardRemove);
+
+//        userStorage.resetStep(message.getChatId());
 
         return sendMessage;
     }
