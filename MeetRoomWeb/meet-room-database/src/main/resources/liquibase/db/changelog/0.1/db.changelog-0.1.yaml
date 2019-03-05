@@ -1,0 +1,9 @@
+databaseChangeLog:
+  -changeSet:
+    id: 04-03-2019-1
+    author: bogdanovkp
+    changes:
+      - sqlFile:
+          path: src/main/resources/liquibase/db/changelog/0.1/create_tables.sql
+          encoding: utf8
+          splitStatements: false
