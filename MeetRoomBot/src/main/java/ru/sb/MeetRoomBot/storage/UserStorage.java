@@ -3,7 +3,7 @@ package ru.sb.MeetRoomBot.storage;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-import ru.sb.MeetRoomBot.commands.IncomingCommand;
+import ru.sb.MeetRoomBot.procassor.command.IncomingCommand;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

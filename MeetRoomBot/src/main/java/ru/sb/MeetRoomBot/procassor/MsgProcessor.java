@@ -1,7 +1,8 @@
-package ru.sb.MeetRoomBot.commands;
+package ru.sb.MeetRoomBot.procassor;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import ru.sb.MeetRoomBot.procassor.command.IncomingCommand;
 
 public interface MsgProcessor {
     IncomingCommand getCommand();

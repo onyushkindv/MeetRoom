@@ -7,7 +7,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.sb.MeetRoomBot.commands.MsgProcessorRouter;
+import ru.sb.MeetRoomBot.procassor.MsgProcessorRouter;
 
 @Component
 public class MeetRoomBot extends TelegramLongPollingBot {

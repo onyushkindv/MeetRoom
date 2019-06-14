@@ -1,11 +1,15 @@
-package ru.sb.MeetRoomBot.commands;
+package ru.sb.MeetRoomBot.procassor.command;
 
 import lombok.Getter;
 
 @Getter
 public enum IncomingCommand {
     INCOMING_START("/start", ""),
-    INCOMING_SET_CONTACT("/set_contact", INCOMING_START.toString());
+
+    INCOMING_SET_CONTACT("/setContact", INCOMING_START.toString()),
+    INCOMING_HELP("/help", INCOMING_START.toString()),
+    INCOMING_SET_TIME_ZONE("/setTimeZone", INCOMING_START.toString()),
+    INCOMING_GET_MEET_ROOM("/getMeetRoom", INCOMING_START.toString());
 
     private String value;
     private String step;
