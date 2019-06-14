@@ -1,4 +1,4 @@
-package ru.sb.meetroom.service.extend;
+package ru.sb.meetroom.repository.extend;
 
 public interface ExtendOfficeRepository {
 }

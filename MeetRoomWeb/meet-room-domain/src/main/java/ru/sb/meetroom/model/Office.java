@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity
+@Entity(name = "offices")
 public class Office {
     @Id
     @Column(unique = true, nullable = false)

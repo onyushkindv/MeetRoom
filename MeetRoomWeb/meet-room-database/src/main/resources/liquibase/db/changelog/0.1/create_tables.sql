@@ -1,13 +1,13 @@
-CREATE TABLE public.user_role
+CREATE TABLE public.user_roles
 (
   id bigserial NOT NULL,
   name CHARACTER VARYING NOT NULL,
   description CHARACTER VARYING (1024),
-  CONSTRAINT user_role_pkey PRIMARY KEY (id)
+  CONSTRAINT user_roles_pkey PRIMARY KEY (id)
 );
 
 
-CREATE TABLE public.user
+CREATE TABLE public.users
 (
   id bigserial NOT NULL,
   name CHARACTER VARYING,
@@ -18,7 +18,7 @@ CREATE TABLE public.user
   bot_channel_id CHARACTER VARYING,
   user_role_id BIGINT NOT NULL,
   CONSTRAINT user_pkey PRIMARY KEY (id),
-  CONSTRAINT fk_user_to_user_role FOREIGN KEY (user_role_id) REFERENCES public.user_role (id)
+  CONSTRAINT fk_user_to_user_roles FOREIGN KEY (user_role_id) REFERENCES public.user_roles (id)
 );
 
 CREATE TABLE public.room_status
@@ -29,7 +29,7 @@ CREATE TABLE public.room_status
   CONSTRAINT room_status_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.office
+CREATE TABLE public.offices
 (
   id bigserial NOT NULL,
   name CHARACTER VARYING NOT NULL,
@@ -42,6 +42,6 @@ CREATE TABLE public.meet_room
   name CHARACTER VARYING NOT NULL,
   office_id BIGINT,
   CONSTRAINT meet_room_pkey PRIMARY KEY (id),
-  CONSTRAINT fk_meet_room_to_office FOREIGN KEY (office_id) REFERENCES public.office (id)
+  CONSTRAINT fk_meet_room_to_offices FOREIGN KEY (office_id) REFERENCES public.offices (id)
 );
 

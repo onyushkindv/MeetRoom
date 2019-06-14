@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity
+@Entity(name = "user_roles")
 public class UserRole {
     @Id
     @Column(unique = true, nullable = false)

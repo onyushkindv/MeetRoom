@@ -1,8 +1,8 @@
-package ru.sb.meetroom.service.repository;
+package ru.sb.meetroom.repository.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import ru.sb.meetroom.model.UserRole;
-import ru.sb.meetroom.service.extend.ExtendUserRoleRepository;
+import ru.sb.meetroom.repository.extend.ExtendUserRoleRepository;
 
 public interface UserRoleRepository extends CrudRepository<UserRole, Long>, ExtendUserRoleRepository {
 }

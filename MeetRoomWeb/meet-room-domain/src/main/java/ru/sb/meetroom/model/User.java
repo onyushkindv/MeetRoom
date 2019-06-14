@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity
+@Entity(name = "users")
 public class User {
     @Id
     @Column(unique = true, nullable = false)
