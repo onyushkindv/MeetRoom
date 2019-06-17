@@ -1,7 +1,7 @@
 package ru.sb.meetroom.repository.extend.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import ru.sb.meetroom.model.User;
 import ru.sb.meetroom.repository.extend.ExtendUserRepository;
 
@@ -9,11 +9,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-@Service
+@Repository
 public class ExtendUserRepositoryImpl implements ExtendUserRepository {
     public EntityManager entityManager;
 

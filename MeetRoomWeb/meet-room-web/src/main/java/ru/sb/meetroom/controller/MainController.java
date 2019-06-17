@@ -3,8 +3,8 @@ package ru.sb.meetroom.controller;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.sb.meetroom.dto.UserDto;
@@ -27,14 +27,14 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/getName", method = {RequestMethod.GET})
-    public UserDto getName(@RequestParam(value = "name", required = false) String name){
+    @GetMapping(value = "/getName")
+    public UserDto getName(@RequestParam(value = "name", required = false) String name) {
         User user = userService.getByName(name);
         return modelMapper.map(user, UserDto.class);
     }
 
-    @RequestMapping(value = "/all", method = {RequestMethod.GET})
-    public List<UserDto> getName(){
+    @GetMapping(value = "/all")
+    public List<UserDto> getName() {
         List<User> users = userService.getAll(0,100);
         return modelMapper.map(users, new TypeToken<List<UserDto>>(){}.getType());
     }

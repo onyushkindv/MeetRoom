@@ -2,7 +2,6 @@ package ru.sb.meetroom.service;
 
 import ru.sb.meetroom.model.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 
