@@ -1,8 +1,8 @@
 server:
-  port: 8282
+  port: 8383
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/meet_room
+    url: jdbc:postgresql://192.168.192.130:5432/meet_room
     driverClassName: org.postgresql.Driver
     username: local
     password: local
