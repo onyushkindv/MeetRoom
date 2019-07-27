@@ -9,9 +9,8 @@ import ru.sb.meetroom.model.User;
 @Mapper()
 public interface UserMapper {
 
-    @Mapping(target="userRole", ignore=true)
     User sourceToDestination(UserDto source);
 
-
+    @Mapping(target="userRole", ignore=true)
     UserDto destinationToSource(User destination);
 }

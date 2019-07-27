@@ -1,9 +1,8 @@
 package ru.sb.meetroom.controller;
 
 import org.mapstruct.factory.Mappers;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,34 +12,35 @@ import ru.sb.meetroom.mapper.UserMapper;
 import ru.sb.meetroom.model.User;
 import ru.sb.meetroom.service.UserService;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
+import java.util.Collections;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api")
 public class MainController {
 
-    ModelMapper modelMapper;
     private UserService userService;
 
     private UserMapper mapper = Mappers.getMapper(UserMapper.class);
 
     @Autowired
-    public MainController(ModelMapper modelMapper, UserService userService) {
-        this.modelMapper = modelMapper;
+    public MainController( UserService userService) {
         this.userService = userService;
     }
 
 
+    @Secured(value = {"ROLE_ADMIN"})
     @GetMapping(value = "/getName")
     public UserDto getName(@RequestParam(value = "name", required = false) String name) {
         User user = userService.getByName(name);
         return mapper.destinationToSource(user);
     }
 
-    @GetMapping(value = "/all")
-    public List<UserDto> getName() {
-        List<User> users = userService.getAll(0,100);
-        return modelMapper.map(users, new TypeToken<List<UserDto>>(){}.getType());
+
+    @RequestMapping("/token")
+    public Map<String,String> token(HttpSession session) {
+        return Collections.singletonMap("token", session.getId());
     }
 
 }
