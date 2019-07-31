@@ -49,9 +49,9 @@
                     <verbose>true</verbose>
                     <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://192.168.192.130:5432/meet_room</url>
-                    <username>local</username>
-                    <password>local</password>
+                    <url>jdbc:postgresql://localhost:5432/meet_room</url>
+                    <username>postgres</username>
+                    <password>postgres</password>
                 </configuration>
                 <dependencies>
                     <dependency>
