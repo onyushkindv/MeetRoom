@@ -3,6 +3,8 @@ package ru.sb.meetroom.controller;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,8 +41,21 @@ public class MainController {
 
 
     @RequestMapping("/token")
-    public Map<String,String> token(HttpSession session) {
-        return Collections.singletonMap("token", session.getId());
+    public String token(HttpSession session) {
+
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode("123");
     }
 
+    @RequestMapping("/login")
+    public String login() {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode("123");
+    }
+
+    @RequestMapping("/fail")
+    public String fail() {
+//        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return "fail";
+    }
 }
