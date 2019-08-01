@@ -15,8 +15,6 @@ import ru.sb.meetroom.model.User;
 import ru.sb.meetroom.service.UserService;
 
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api")
