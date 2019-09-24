@@ -1,4 +1,4 @@
-package ru.sb.meetroom.dto;
+package ru.sb.MeetRoomBot.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public class UserDto {
     private String name;
     private String login;
     private String password;
-    private UserRoleDto userRole;
+//    private UserRoleDto userRole;
     private String phoneNumber;
     private String botChannelId;
     private String description;

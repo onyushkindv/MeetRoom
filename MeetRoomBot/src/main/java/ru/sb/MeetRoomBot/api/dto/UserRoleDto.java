@@ -1,4 +1,4 @@
-package ru.sb.meetroom.dto;
+package ru.sb.MeetRoomBot.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
